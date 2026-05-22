@@ -2,533 +2,344 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Warhound Scout Titan — Record Sheet</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=UnifrakturCook:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<title>REAVER TITAN — RECORD SHEET</title>
 <style>
-:root {
-  --parchment: #ede1c8;
-  --parchment-dk: #d8c8a4;
-  --ink: #1a1410;
-  --ink-soft: #3a2e22;
-  --oxblood: #6b1818;
-  --gold: #8c6a2a;
-  --bone: #f0e6cc;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body {
-  background: radial-gradient(ellipse at center, #2a241c 0%, #15110d 100%);
-  font-family: 'EB Garamond', serif;
-  color: var(--ink);
-  -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
-  padding: 20px 0;
-}
-.sheet {
-  max-width: 1180px;
-  margin: 0 auto;
-  background: var(--parchment);
-  background-image:
-    radial-gradient(ellipse at top left, rgba(140, 106, 42, 0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom right, rgba(107, 24, 24, 0.10) 0%, transparent 55%),
-    repeating-linear-gradient(45deg, transparent 0px, transparent 2px, rgba(58, 46, 34, 0.025) 2px, rgba(58, 46, 34, 0.025) 3px),
-    linear-gradient(135deg, var(--parchment) 0%, var(--parchment-dk) 100%);
-  box-shadow: 0 0 80px rgba(0,0,0,0.7), inset 0 0 120px rgba(107, 24, 24, 0.06);
-  border: 1px solid var(--gold);
-  position: relative;
-  overflow: hidden;
-}
-.sheet::after {
-  content: ''; position: absolute; inset: 12px;
-  border: 1px solid var(--ink-soft); pointer-events: none; z-index: 1;
-}
-.inner { position: relative; z-index: 2; padding: 30px 36px; }
-header {
-  text-align: center; border-bottom: 2px solid var(--ink);
-  padding-bottom: 14px; margin-bottom: 18px; position: relative;
-}
-header::before, header::after {
-  content: ''; position: absolute; bottom: -2px;
-  width: 60px; height: 6px; background: var(--oxblood);
-}
-header::before { left: 0; } header::after { right: 0; }
-.imperial-mark { font-family: 'Cinzel', serif; font-weight: 700; font-size: 9px; letter-spacing: 0.4em; color: var(--oxblood); margin-bottom: 6px; }
-h1 { font-family: 'UnifrakturCook', serif; font-size: 46px; color: var(--ink); line-height: 0.95; margin-bottom: 4px; text-shadow: 0 1px 0 rgba(255, 240, 200, 0.4); }
-.subtitle { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.45em; color: var(--ink-soft); text-transform: uppercase; }
-.pt-cost { display: inline-block; margin-top: 8px; padding: 3px 14px; background: var(--ink); color: var(--bone); font-family: 'Cinzel', serif; font-weight: 600; font-size: 11px; letter-spacing: 0.3em; }
-.identifiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 14px 0 18px; }
-.id-field { border-bottom: 1px solid var(--ink-soft); padding-bottom: 3px; }
-.id-label { font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 0.3em; color: var(--oxblood); text-transform: uppercase; display: block; margin-bottom: 2px; }
-.id-input { height: 22px; border: none; background: transparent; width: 100%; font-family: 'UnifrakturCook', serif; font-size: 16px; color: var(--ink); border-bottom: 1px dotted var(--ink-soft); outline: none; }
-.id-input:focus { border-bottom-color: var(--oxblood); }
-.main { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
-.panel { background: rgba(240, 230, 204, 0.4); border: 1px solid var(--ink-soft); padding: 12px 14px; position: relative; }
-.panel-title { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--oxblood); border-bottom: 1px solid var(--ink); padding-bottom: 4px; margin-bottom: 8px; font-weight: 700; }
-.profile-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 12px; }
-.profile-table th { font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--oxblood); border-bottom: 2px solid var(--ink); padding: 4px 2px; font-weight: 700; text-align: center; }
-.profile-table th:first-child { text-align: left; padding-left: 4px; }
-.profile-table td { padding: 4px 2px; border-bottom: 1px dotted var(--ink-soft); text-align: center; font-weight: 500; }
-.profile-table td:first-child { text-align: left; padding-left: 4px; font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.1em; font-weight: 700; }
-.profile-table tr:last-child td { border-bottom: none; }
-.dmg-section { margin-bottom: 13px; }
-.dmg-section:last-child { margin-bottom: 0; }
-.dmg-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; border-bottom: 1px solid var(--ink-soft); padding-bottom: 2px; }
-.dmg-name { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink); }
-.dmg-armor { font-family: 'EB Garamond', serif; font-size: 9px; color: var(--ink-soft); font-style: italic; }
-.dmg-armor b { font-family: 'Cinzel', serif; font-style: normal; font-weight: 700; font-size: 11px; color: var(--ink); margin-left: 2px; }
-.pip-row { display: flex; align-items: center; gap: 5px; margin: 3px 0; }
-.pip-label { font-family: 'Cinzel', serif; font-size: 7px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); width: 28px; text-align: right; flex-shrink: 0; }
-.pips { display: flex; gap: 3px; flex-wrap: wrap; }
-.pip { width: 13px; height: 13px; border: 1.5px solid var(--ink); background: transparent; cursor: pointer; position: relative; flex-shrink: 0; transition: background 0.1s; }
-.pip:hover { background: rgba(107, 24, 24, 0.25); }
-.pip.filled { background: var(--ink); }
-.pip.filled::after { content: '✕'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--bone); font-size: 10px; font-weight: 900; line-height: 1; }
-.pip.shield { border-radius: 50%; border: 2px solid var(--oxblood); width: 16px; height: 16px; background: rgba(240, 230, 204, 0.5); }
-.pip.shield.filled { background: var(--oxblood); border-color: var(--ink); }
-.pip.shield.filled::after { content: '✕'; color: var(--bone); font-size: 10px; }
-.status-row { display: flex; gap: 12px; align-items: center; margin-top: 6px; font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); flex-wrap: wrap; }
-.status-toggle { display: flex; align-items: center; gap: 4px; cursor: pointer; user-select: none; }
-.status-box { width: 12px; height: 12px; border: 1.5px solid var(--ink); background: transparent; flex-shrink: 0; position: relative; }
-.status-toggle.on .status-box { background: var(--oxblood); border-color: var(--oxblood); }
-.status-toggle.on .status-box::after { content: '✓'; color: var(--bone); font-size: 10px; font-weight: 900; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); line-height: 1; }
-.status-toggle.on { color: var(--oxblood); }
-.shield-block { display: flex; flex-direction: column; gap: 8px; }
-.shield-pips { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
-.weapon { border-bottom: 1px solid var(--ink-soft); padding: 8px 0; }
-.weapon:last-child { border-bottom: none; }
-.weapon-head { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; flex-wrap: wrap; }
-.weapon-name { font-family: 'Cinzel', serif; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); flex: 1; min-width: 100px; }
-.weapon-tag { font-size: 7px; letter-spacing: 0.2em; padding: 1px 5px; background: var(--oxblood); color: var(--bone); font-weight: 700; }
-.weapon-break-toggle { font-size: 7px; font-family: 'Cinzel', serif; cursor: pointer; border: 1px solid var(--ink-soft); padding: 2px 6px; color: var(--ink-soft); background: transparent; text-transform: uppercase; letter-spacing: 0.15em; }
-.weapon-break-toggle:hover { background: var(--oxblood); color: var(--bone); border-color: var(--oxblood); }
-.weapon.broken { opacity: 0.4; }
-.weapon.broken .weapon-name { text-decoration: line-through; }
-.weapon.broken .weapon-break-toggle { background: var(--oxblood); color: var(--bone); border-color: var(--oxblood); }
-.weapon-selector {
-  font-family: 'Cinzel', serif; font-size: 8px;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  background: transparent; color: var(--ink);
-  border: 1px solid var(--ink-soft); padding: 3px 22px 3px 6px;
-  cursor: pointer; outline: none;
-  font-weight: 700; flex: 1; min-width: 100px;
-  -webkit-appearance: none; -moz-appearance: none; appearance: none;
-  background-image: linear-gradient(45deg, transparent 50%, var(--oxblood) 50%), linear-gradient(135deg, var(--oxblood) 50%, transparent 50%);
-  background-position: calc(100% - 12px) 50%, calc(100% - 8px) 50%;
-  background-size: 4px 4px, 4px 4px;
-  background-repeat: no-repeat;
-}
-.weapon-selector:hover, .weapon-selector:focus { border-color: var(--oxblood); }
-.weapon-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; margin-bottom: 3px; }
-.ws-col { text-align: center; border: 1px solid var(--ink-soft); padding: 2px 0; background: rgba(240, 230, 204, 0.5); }
-.ws-label { display: block; font-family: 'Cinzel', serif; font-size: 7px; letter-spacing: 0.1em; color: var(--oxblood); text-transform: uppercase; }
-.ws-val { font-weight: 700; font-size: 11px; color: var(--ink); font-family: 'EB Garamond', serif; }
-.weapon-traits { font-size: 9px; font-style: italic; color: var(--ink-soft); margin-top: 2px; line-height: 1.3; }
-.lower-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 16px; }
-.rule-list { list-style: none; font-size: 10.5px; line-height: 1.45; }
-.rule-list li { padding: 3px 0; border-bottom: 1px dotted var(--ink-soft); }
-.rule-list li:last-child { border: none; }
-.rule-list b { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--oxblood); display: inline-block; margin-right: 4px; }
-.reaction-tracker { display: flex; align-items: center; gap: 6px; font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 6px; padding-top: 6px; border-top: 1px dotted var(--ink-soft); }
-.notes-area { height: 90px; border: 1px solid var(--ink-soft); background: repeating-linear-gradient(transparent 0, transparent 17px, rgba(58, 46, 34, 0.3) 17px, rgba(58, 46, 34, 0.3) 18px); padding: 4px 8px; font-family: 'EB Garamond', serif; font-size: 13px; resize: none; outline: none; width: 100%; color: var(--ink); }
-.footer { margin-top: 20px; text-align: center; border-top: 2px solid var(--ink); padding-top: 10px; position: relative; }
-.footer::before, .footer::after { content: ''; position: absolute; top: -2px; width: 60px; height: 6px; background: var(--oxblood); }
-.footer::before { left: 0; } .footer::after { right: 0; }
-.footer-motto { font-family: 'UnifrakturCook', serif; font-size: 18px; color: var(--oxblood); letter-spacing: 0.05em; }
-.footer-sub { font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 0.4em; color: var(--ink-soft); text-transform: uppercase; margin-top: 4px; }
-.reset-btn { position: fixed; bottom: 16px; right: 16px; background: var(--oxblood); color: var(--bone); border: 1px solid var(--gold); font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.2em; padding: 8px 14px; cursor: pointer; text-transform: uppercase; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.5); }
-.reset-btn:hover { background: var(--ink); }
-@media print { body { background: white; padding: 0; } .sheet { box-shadow: none; max-width: 100%; } .pip:hover { background: transparent; } .reset-btn { display: none; } }
-@media (max-width: 900px) { .main { grid-template-columns: 1fr; } .lower-grid { grid-template-columns: 1fr; } }
+  @import url('https://fonts.googleapis.com/css2?family=Bungee&family=JetBrains+Mono:wght@400;700&display=swap');
+  body {
+    margin: 0;
+    background: #0f0d08;
+    background-image:
+      radial-gradient(ellipse at top, #2a1a0a 0%, #0f0d08 70%),
+      repeating-linear-gradient(0deg, rgba(255,180,80,0.02) 0px, rgba(255,180,80,0.02) 1px, transparent 1px, transparent 3px);
+    color: #f5deb3;
+    font-family: 'JetBrains Mono', monospace;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  svg { max-width: 100%; height: auto; filter: drop-shadow(0 0 20px rgba(255,140,40,0.15)); }
 </style>
 </head>
 <body>
 
-<div class="sheet">
-<div class="inner">
+<svg viewBox="0 0 800 1100" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', monospace">
+  <defs>
+    <!-- grunge filter -->
+    <filter id="grunge" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
+      <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 0.15 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
 
-<header>
-  <div class="imperial-mark">✦ COLLEGIA TITANICA ✦ DIVISIO MILITARIS ✦</div>
-  <h1>Warhound Scout Titan</h1>
-  <div class="subtitle">Mars Pattern · Vehicle (Titan) · Scout</div>
-  <span class="pt-cost">750 POINTS</span>
-</header>
+    <pattern id="hexgrid" width="20" height="17.32" patternUnits="userSpaceOnUse">
+      <path d="M10 0 L20 5.77 L20 11.55 L10 17.32 L0 11.55 L0 5.77 Z" fill="none" stroke="#3a2a14" stroke-width="0.4"/>
+    </pattern>
 
-<div class="identifiers">
-  <div class="id-field"><span class="id-label">Engine Name</span><input class="id-input" type="text"></div>
-  <div class="id-field"><span class="id-label">Legio</span><input class="id-input" type="text"></div>
-  <div class="id-field"><span class="id-label">Princeps</span><input class="id-input" type="text"></div>
-</div>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a1410"/>
+      <stop offset="50%" stop-color="#2a1f15"/>
+      <stop offset="100%" stop-color="#0f0a06"/>
+    </linearGradient>
 
-<div class="main">
+    <linearGradient id="armorPlate" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4a3520"/>
+      <stop offset="100%" stop-color="#1f1408"/>
+    </linearGradient>
+  </defs>
 
-  <div class="panel">
-    <div class="panel-title">⚙ Engine Profiles & Hull Integrity</div>
-    
-    <table class="profile-table">
-      <thead>
-        <tr><th>Profile</th><th>M</th><th>BS</th><th>Prim</th><th>Exp</th><th>HP</th></tr>
-      </thead>
-      <tbody>
-<tr><td>Head</td><td>—</td><td>—</td><td>14</td><td>12</td><td>8</td></tr>
-<tr><td>Carapace</td><td>—</td><td>—</td><td>14</td><td>12</td><td>10</td></tr>
-<tr><td>Arms</td><td>—</td><td>3</td><td>12</td><td>10</td><td>8</td></tr>
-<tr><td>Legs</td><td>20</td><td>—</td><td>14</td><td>12</td><td>10</td></tr>
+  <!-- Background hex field -->
+  <rect width="800" height="1100" fill="url(#hexgrid)" opacity="0.5"/>
 
-      </tbody>
-    </table>
-    
-    <div class="dmg-section">
-      <div class="dmg-header">
-        <span class="dmg-name">Head</span>
-        <span class="dmg-armor">Armour <b>14</b>/<b>12</b> · HP <b>8</b></span>
-      </div>
-      <div class="pip-row">
-        <span class="pip-label">HP</span>
-        <div class="pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
-      </div>
-      <div class="status-row">
-        <div class="status-toggle"><span class="status-box"></span> Crippled</div>
-        
-      </div>
-    </div>
-    <div class="dmg-section">
-      <div class="dmg-header">
-        <span class="dmg-name">Carapace</span>
-        <span class="dmg-armor">Armour <b>14</b>/<b>12</b> · HP <b>10</b></span>
-      </div>
-      <div class="pip-row">
-        <span class="pip-label">HP</span>
-        <div class="pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
-      </div>
-      <div class="status-row">
-        <div class="status-toggle"><span class="status-box"></span> Crippled</div>
-        
-      </div>
-    </div>
-    <div class="dmg-section">
-      <div class="dmg-header">
-        <span class="dmg-name">Arms</span>
-        <span class="dmg-armor">Armour <b>12</b>/<b>10</b> · HP <b>8</b></span>
-      </div>
-      <div class="pip-row">
-        <span class="pip-label">HP</span>
-        <div class="pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
-      </div>
-      <div class="status-row">
-        <div class="status-toggle"><span class="status-box"></span> Crippled</div>
-        
-      </div>
-    </div>
-    <div class="dmg-section">
-      <div class="dmg-header">
-        <span class="dmg-name">Legs</span>
-        <span class="dmg-armor">Armour <b>14</b>/<b>12</b> · HP <b>10</b> · M <b>20"</b></span>
-      </div>
-      <div class="pip-row">
-        <span class="pip-label">HP</span>
-        <div class="pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
-      </div>
-      <div class="status-row">
-        <div class="status-toggle"><span class="status-box"></span> Crippled</div>
-        <div class="status-toggle"><span class="status-box"></span> Unsteady</div>
-      </div>
-    </div>
+  <!-- HEADER FRAME -->
+  <g>
+    <rect x="20" y="20" width="760" height="70" fill="#1a1208" stroke="#c8821e" stroke-width="2"/>
+    <rect x="24" y="24" width="752" height="62" fill="none" stroke="#c8821e" stroke-width="0.5" stroke-dasharray="4,3"/>
+    <text x="400" y="55" font-family="'Bungee', cursive" font-size="28" fill="#f5b94a" text-anchor="middle" letter-spacing="4">REAVER BATTLE TITAN</text>
+    <text x="400" y="78" font-size="11" fill="#c89858" text-anchor="middle" letter-spacing="6">// LEGIO RECORD SHEET — CLASSIFIED VERMILLION //</text>
+  </g>
 
-    <div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--ink-soft);">
-      <div class="panel-title" style="margin-bottom: 6px;">☩ Void Shield Array (2)</div>
-      <div style="font-family:'EB Garamond',serif; font-size:10px; font-style:italic; color:var(--ink-soft); margin-bottom: 6px;">
-        Click a shield as it drops. Tap again to restore.
-      </div>
-      <div class="shield-pips"><div class="pip shield"></div><div class="pip shield"></div></div>
-    </div>
+  <!-- STAT BLOCK left -->
+  <g font-size="10" fill="#e0b878">
+    <rect x="20" y="100" width="180" height="160" fill="#15100a" stroke="#7a5520" stroke-width="1"/>
+    <text x="30" y="118" fill="#f5b94a" font-weight="700">┌─ MACHINE SPIRIT ─┐</text>
+    <text x="30" y="140">CLASS......REAVER</text>
+    <text x="30" y="156">HEIGHT.....26.5 m</text>
+    <text x="30" y="172">MASS.......800 t</text>
+    <text x="30" y="188">REACTOR....PLASMA</text>
+    <text x="30" y="204">CREW.......PRINCEPS</text>
+    <text x="30" y="220">VOID SHLD..ACTIVE</text>
+    <text x="30" y="236">STATUS.....[ FUNCTIONAL ]</text>
+    <text x="30" y="252" fill="#7a5520">└──────────────────┘</text>
+  </g>
 
-    <div style="margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--ink-soft);">
-      <div class="panel-title" style="margin-bottom: 6px;">⚙ Repair Crew</div>
-      <div class="pip-row" style="justify-content: center;">
-        <span class="pip-label" style="text-align:center; width: auto;">Used:</span>
-        <div class="pips"><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div></div>
-      </div>
-    </div>
-  </div>
+  <!-- STAT BLOCK right -->
+  <g font-size="10" fill="#e0b878">
+    <rect x="600" y="100" width="180" height="160" fill="#15100a" stroke="#7a5520" stroke-width="1"/>
+    <text x="610" y="118" fill="#f5b94a" font-weight="700">┌─ WEAPON LOAD ────┐</text>
+    <text x="610" y="140">L.ARM .... APOC MSL</text>
+    <text x="610" y="156">R.ARM .... GATLING</text>
+    <text x="610" y="172">CARAPACE . VULKAN</text>
+    <text x="610" y="188">MELTA  ... ARMIGER</text>
+    <text x="610" y="204">HEAT ..... [██░░░] 2/5</text>
+    <text x="610" y="220">AMMO ..... NOMINAL</text>
+    <text x="610" y="236">TARGET ... ACQUIRED</text>
+    <text x="610" y="252" fill="#7a5520">└──────────────────┘</text>
+  </g>
 
-  <div class="panel">
-    <div class="panel-title">⚔ Armament</div>
-    
-    <div class="weapon">
-      <div class="weapon-head">
-        <select class="weapon-selector">
-<option value="vulcan_megabolter" selected>Vulcan Mega-bolter</option>
-<option value="titan_inferno">Titan Inferno Cannon</option>
-<option value="titan_plasma_sus">Titan Plasma — Sustained</option>
-<option value="titan_turbolaser">Titan Turbo Laser Destructor</option>
-        </select>
-        <span class="weapon-tag">L. ARM</span>
-        <button class="weapon-break-toggle">Break</button>
-      </div>
-      <div class="weapon-stats">
-        <div class="ws-col"><span class="ws-label">R</span><span class="ws-val" data-stat="r">48</span></div>
-        <div class="ws-col"><span class="ws-label">FP</span><span class="ws-val" data-stat="fp">12</span></div>
-        <div class="ws-col"><span class="ws-label">RS</span><span class="ws-val" data-stat="rs">7</span></div>
-        <div class="ws-col"><span class="ws-label">AP</span><span class="ws-val" data-stat="ap">3</span></div>
-        <div class="ws-col"><span class="ws-label">D</span><span class="ws-val" data-stat="d">2</span></div>
-      </div>
-      <div class="weapon-traits" data-stat="traits">Suppressive (3) · Bolt, Strategic</div>
-    </div>
-    <div class="weapon">
-      <div class="weapon-head">
-        <select class="weapon-selector">
-<option value="vulcan_megabolter">Vulcan Mega-bolter</option>
-<option value="titan_inferno">Titan Inferno Cannon</option>
-<option value="titan_plasma_sus">Titan Plasma — Sustained</option>
-<option value="titan_turbolaser" selected>Titan Turbo Laser Destructor</option>
-        </select>
-        <span class="weapon-tag">R. ARM</span>
-        <button class="weapon-break-toggle">Break</button>
-      </div>
-      <div class="weapon-stats">
-        <div class="ws-col"><span class="ws-label">R</span><span class="ws-val" data-stat="r">96</span></div>
-        <div class="ws-col"><span class="ws-label">FP</span><span class="ws-val" data-stat="fp">1</span></div>
-        <div class="ws-col"><span class="ws-label">RS</span><span class="ws-val" data-stat="rs">12</span></div>
-        <div class="ws-col"><span class="ws-label">AP</span><span class="ws-val" data-stat="ap">2</span></div>
-        <div class="ws-col"><span class="ws-label">D</span><span class="ws-val" data-stat="d">6</span></div>
-      </div>
-      <div class="weapon-traits" data-stat="traits">Blast (3"), Armourbane · Las, Strategic</div>
-    </div>
-    <div class="weapon">
-      <div class="weapon-head">
-        <span class="weapon-name">Titan Stomp (Combat)</span>
-        <span class="weapon-tag">PASSIVE</span>
-      </div>
-      <div class="weapon-stats">
-        <div class="ws-col"><span class="ws-label">Hits</span><span class="ws-val">D3+1</span></div>
-        <div class="ws-col"><span class="ws-label">S</span><span class="ws-val">10</span></div>
-        <div class="ws-col"><span class="ws-label">AP</span><span class="ws-val">2</span></div>
-        <div class="ws-col"><span class="ws-label">D</span><span class="ws-val">4</span></div>
-        <div class="ws-col"><span class="ws-label">Init</span><span class="ws-val">Last</span></div>
-      </div>
-      <div class="weapon-traits">Resolved after all other Combat attacks. Hits all non-Titan/Knight/Antigrav Units. Not counted for Combat Resolution.</div>
-    </div>
-  </div>
+  <!-- ====== TITAN SILHOUETTE ====== -->
+  <g transform="translate(400, 580)">
 
-</div>
+    <!-- HEAD / COCKPIT -->
+    <g>
+      <!-- crown spike -->
+      <path d="M -25 -260 L 0 -290 L 25 -260 Z" fill="url(#armorPlate)" stroke="#c8821e" stroke-width="1.5"/>
+      <!-- head main -->
+      <path d="M -55 -255 L -45 -200 L -30 -185 L 30 -185 L 45 -200 L 55 -255 L 35 -265 L -35 -265 Z"
+            fill="url(#metalGrad)" stroke="#c8821e" stroke-width="2"/>
+      <!-- eye visor -->
+      <path d="M -38 -230 L -25 -235 L 25 -235 L 38 -230 L 38 -218 L 25 -213 L -25 -213 L -38 -218 Z"
+            fill="#f5b94a" opacity="0.85"/>
+      <path d="M -38 -230 L -25 -235 L 25 -235 L 38 -230 L 38 -218 L 25 -213 L -25 -213 L -38 -218 Z"
+            fill="none" stroke="#7a3a00" stroke-width="1"/>
+      <!-- horns -->
+      <path d="M -55 -255 L -75 -245 L -65 -230 Z" fill="url(#armorPlate)" stroke="#c8821e" stroke-width="1"/>
+      <path d="M 55 -255 L 75 -245 L 65 -230 Z" fill="url(#armorPlate)" stroke="#c8821e" stroke-width="1"/>
+    </g>
 
-<div class="lower-grid">
-  <div class="panel">
-    <div class="panel-title">⚜ Traits & Type</div>
-    <ul class="rule-list">
-      <li><b>Allegiance</b> Loyalist / Traitor</li>
-      <li><b>Faction</b> Legio Titanicus</li>
-      <li><b>Class</b> Scout</li>
-      <li><b>Crew</b> Minoris / Senioris / Majoris</li>
-      <li><b>Type</b> Vehicle (Titan)</li>
-    </ul>
-    <div class="reaction-tracker">
-      <span>Reaction this turn:</span>
-      <div class="pips"><div class="pip"></div></div>
-    </div>
-  </div>
+    <!-- NECK / COLLAR -->
+    <path d="M -45 -185 L -70 -160 L 70 -160 L 45 -185 Z" fill="url(#metalGrad)" stroke="#c8821e" stroke-width="1.5"/>
 
-  <div class="panel">
-    <div class="panel-title">✦ Special Rules</div>
-    <ul class="rule-list">
-<li><b>Titan War Horn (1)</b></li>
-<li><b>Repair Crew (D3)</b></li>
-<li><b>Titan Void Shield Array (2)</b></li>
-    </ul>
-  </div>
+    <!-- CARAPACE / TOP TORSO with mounted weapons -->
+    <g>
+      <!-- left carapace weapon mount -->
+      <rect x="-180" y="-170" width="50" height="30" fill="url(#armorPlate)" stroke="#c8821e" stroke-width="1.5"/>
+      <rect x="-200" y="-165" width="25" height="20" fill="#1a1208" stroke="#c8821e" stroke-width="1"/>
+      <circle cx="-210" cy="-155" r="3" fill="#f5b94a"/>
+      <!-- right carapace weapon mount -->
+      <rect x="130" y="-170" width="50" height="30" fill="url(#armorPlate)" stroke="#c8821e" stroke-width="1.5"/>
+      <rect x="175" y="-165" width="25" height="20" fill="#1a1208" stroke="#c8821e" stroke-width="1"/>
+      <circle cx="210" cy="-155" r="3" fill="#f5b94a"/>
 
-  <div class="panel">
-    <div class="panel-title">⚙ Damage / Status Notes</div>
-    <textarea class="notes-area" placeholder="Critical damage results, statuses imposed by Swarm Assault, objectives held..."></textarea>
-  </div>
-</div>
+      <!-- main upper torso/carapace -->
+      <path d="M -180 -160 L -180 -100 L -150 -80 L 150 -80 L 180 -100 L 180 -160 Z"
+            fill="url(#metalGrad)" stroke="#c8821e" stroke-width="2"/>
+      <!-- carapace icon -->
+      <circle cx="0" cy="-125" r="22" fill="#1a1208" stroke="#c8821e" stroke-width="2"/>
+      <path d="M -12 -135 L 0 -110 L 12 -135 M -8 -120 L 8 -120" stroke="#f5b94a" stroke-width="2" fill="none"/>
+      <text x="0" y="-95" font-size="8" fill="#c89858" text-anchor="middle">LEGIO MORTIS</text>
+    </g>
 
-<div class="footer">
-  <div class="footer-motto">Cito Mortem</div>
-  <div class="footer-sub">Swift Death</div>
-</div>
+    <!-- LEFT ARM / APOCALYPSE MISSILE -->
+    <g>
+      <rect x="-260" y="-80" width="80" height="120" fill="url(#metalGrad)" stroke="#c8821e" stroke-width="2"/>
+      <!-- missile tubes -->
+      <g fill="#1a1208" stroke="#c8821e" stroke-width="1">
+        <rect x="-255" y="-70" width="15" height="15"/>
+        <rect x="-235" y="-70" width="15" height="15"/>
+        <rect x="-215" y="-70" width="15" height="15"/>
+        <rect x="-195" y="-70" width="15" height="15"/>
+        <rect x="-255" y="-50" width="15" height="15"/>
+        <rect x="-235" y="-50" width="15" height="15"/>
+        <rect x="-215" y="-50" width="15" height="15"/>
+        <rect x="-195" y="-50" width="15" height="15"/>
+        <rect x="-255" y="-30" width="15" height="15"/>
+        <rect x="-235" y="-30" width="15" height="15"/>
+        <rect x="-215" y="-30" width="15" height="15"/>
+        <rect x="-195" y="-30" width="15" height="15"/>
+      </g>
+      <text x="-220" y="20" font-size="9" fill="#f5b94a" text-anchor="middle" font-weight="700">APOCALYPSE</text>
+      <text x="-220" y="32" font-size="8" fill="#c89858" text-anchor="middle">MSL LAUNCHER</text>
+    </g>
 
-</div>
-</div>
+    <!-- RIGHT ARM / GATLING BLASTER -->
+    <g>
+      <rect x="180" y="-80" width="50" height="50" fill="url(#metalGrad)" stroke="#c8821e" stroke-width="2"/>
+      <!-- barrels -->
+      <circle cx="245" cy="-55" r="25" fill="#1a1208" stroke="#c8821e" stroke-width="2"/>
+      <g fill="#3a2a14" stroke="#c8821e" stroke-width="0.5">
+        <circle cx="245" cy="-70" r="4"/>
+        <circle cx="258" cy="-62" r="4"/>
+        <circle cx="258" cy="-48" r="4"/>
+        <circle cx="245" cy="-40" r="4"/>
+        <circle cx="232" cy="-48" r="4"/>
+        <circle cx="232" cy="-62" r="4"/>
+        <circle cx="245" cy="-55" r="4" fill="#f5b94a"/>
+      </g>
+      <rect x="225" cy="-55" y="-55" width="40" height="6" fill="#1a1208" stroke="#c8821e" stroke-width="1"/>
+      <text x="220" y="20" font-size="9" fill="#f5b94a" text-anchor="middle" font-weight="700">GATLING</text>
+      <text x="220" y="32" font-size="8" fill="#c89858" text-anchor="middle">BLASTER</text>
+    </g>
 
-<button class="reset-btn" onclick="resetSheet()">↺ Reset Damage</button>
+    <!-- LOWER TORSO / HIP -->
+    <g>
+      <path d="M -150 -80 L -130 50 L 130 50 L 150 -80 Z" fill="url(#armorPlate)" stroke="#c8821e" stroke-width="2"/>
+      <!-- pelvic guard -->
+      <path d="M -90 50 L -110 100 L 110 100 L 90 50 Z" fill="url(#metalGrad)" stroke="#c8821e" stroke-width="2"/>
+      <!-- icon plate -->
+      <rect x="-30" y="-30" width="60" height="60" fill="#1a1208" stroke="#c8821e" stroke-width="1.5"/>
+      <text x="0" y="5" font-size="20" fill="#f5b94a" text-anchor="middle" font-family="'Bungee', cursive">☠</text>
+    </g>
 
-<script>
-const WEAPONS = {"vulcan_megabolter": {"name": "Vulcan Mega-bolter", "r": "48", "fp": "12", "rs": "7", "ap": "3", "d": "2", "traits": "Suppressive (3) \u00b7 Bolt, Strategic"}, "titan_inferno": {"name": "Titan Inferno Cannon", "r": "Tmp", "fp": "1", "rs": "7", "ap": "3", "d": "3", "traits": "Template (Hellstorm), Panic (3) \u00b7 Flame, Strategic"}, "titan_plasma_sus": {"name": "Titan Plasma \u2014 Sustained", "r": "60", "fp": "1", "rs": "8", "ap": "2", "d": "5", "traits": "Blast (3\") \u00b7 Plasma, Strategic"}, "titan_plasma_max": {"name": "Titan Plasma \u2014 Maximal", "r": "60", "fp": "1", "rs": "9", "ap": "2", "d": "7", "traits": "Blast (5\"), Power Hungry \u00b7 Plasma, Strategic"}, "titan_turbolaser": {"name": "Titan Turbo Laser Destructor", "r": "96", "fp": "1", "rs": "12", "ap": "2", "d": "6", "traits": "Blast (3\"), Armourbane \u00b7 Las, Strategic"}, "titan_gatling": {"name": "Titan Gatling Blaster", "r": "82", "fp": "5", "rs": "9", "ap": "2", "d": "4", "traits": "Armourbane \u00b7 Auto, Strategic"}, "titan_laser": {"name": "Titan Laser Blaster", "r": "82", "fp": "3", "rs": "10", "ap": "2", "d": "5", "traits": "Armourbane \u00b7 Las, Strategic"}, "titan_melta": {"name": "Titan Melta Cannon", "r": "60", "fp": "1", "rs": "12", "ap": "2", "d": "8", "traits": "Blast (5\"), Melta (48) \u00b7 Melta, Strategic"}, "titan_volcano": {"name": "Titan Volcano Cannon", "r": "120", "fp": "1", "rs": "13", "ap": "2", "d": "12", "traits": "Blast (3\"), Power Hungry, Macro-auspex \u00b7 Las, Strategic"}, "apocalypse_missile": {"name": "Apocalypse Missile Launcher", "r": "150", "fp": "1", "rs": "9", "ap": "3", "d": "4", "traits": "Blast (10\"), Shield-breaker (3) \u00b7 Missile, Strategic"}, "nemesis_quake": {"name": "Nemesis Quake Cannon", "r": "150", "fp": "1", "rs": "12", "ap": "2", "d": "10", "traits": "Blast (5\"), Power Hungry, Macro-auspex \u00b7 Auto, Strategic"}, "nemesis_volcano": {"name": "Nemesis Volcano Cannon", "r": "150", "fp": "1", "rs": "13", "ap": "2", "d": "12", "traits": "Blast (3\"), Power Hungry, Macro-auspex \u00b7 Las, Strategic"}, "mori_quake": {"name": "Mori Quake Cannon", "r": "150", "fp": "1", "rs": "12", "ap": "2", "d": "10", "traits": "Blast (5\"), Macro-auspex \u00b7 Auto, Strategic"}, "belicosa_volcano": {"name": "Belicosa Volcano Cannon", "r": "150", "fp": "1", "rs": "13", "ap": "2", "d": "12", "traits": "Blast (3\"), Macro-auspex \u00b7 Las, Strategic"}, "macro_gatling": {"name": "Macro-gatling Blaster", "r": "96", "fp": "5", "rs": "10", "ap": "2", "d": "5", "traits": "Armourbane, Macro-auspex \u00b7 Auto, Strategic"}, "sunfury_sus": {"name": "Sunfury Plasma \u2014 Sustained", "r": "82", "fp": "1", "rs": "9", "ap": "2", "d": "6", "traits": "Blast (5\"), Macro-auspex \u00b7 Plasma, Strategic"}, "sunfury_max": {"name": "Sunfury Plasma \u2014 Maximal", "r": "82", "fp": "1", "rs": "12", "ap": "2", "d": "9", "traits": "Blast (7\"), Power Hungry, Macro-auspex \u00b7 Plasma, Strategic"}, "arioch_clawbolter": {"name": "Arioch Power Claw + Vulcan Mega-bolter (paired)", "r": "\u2014", "fp": "\u2014", "rs": "\u2014", "ap": "\u2014", "d": "\u2014", "traits": "See compendium \u2014 Strike + Bolt Strategic combo"}, "titan_powerfist": {"name": "Titan Power Fist", "r": "6", "fp": "1", "rs": "12", "ap": "2", "d": "10", "traits": "Armourbane \u00b7 Strike"}, "def_autocannon": {"name": "Defensor Autocannon", "r": "48", "fp": "3", "rs": "7", "ap": "4", "d": "2", "traits": "Breaching (6+), Skyfire \u00b7 Auto, Tactical"}, "def_boltcannon": {"name": "Defensor Bolt Cannon", "r": "36", "fp": "6", "rs": "5", "ap": "4", "d": "1", "traits": "Bolt, Tactical"}, "def_lascannon": {"name": "Defensor Lascannon", "r": "48", "fp": "2", "rs": "9", "ap": "2", "d": "2", "traits": "Armourbane \u00b7 Las, Tactical"}};
+    <!-- LEGS -->
+    <g>
+      <!-- left thigh -->
+      <path d="M -110 100 L -130 220 L -80 240 L -50 110 Z" fill="url(#metalGrad)" stroke="#c8821e" stroke-width="2"/>
+      <!-- left knee -->
+      <circle cx="-105" cy="225" r="22" fill="url(#armorPlate)" stroke="#c8821e" stroke-width="2"/>
+      <circle cx="-105" cy="225" r="8" fill="#f5b94a" opacity="0.6"/>
+      <!-- left shin -->
+      <path d="M -125 240 L -135 360 L -75 360 L -75 240 Z" fill="url(#metalGrad)" stroke="#c8821e" stroke-width="2"/>
+      <!-- left foot -->
+      <path d="M -145 360 L -155 395 L -55 395 L -65 360 Z" fill="url(#armorPlate)" stroke="#c8821e" stroke-width="2"/>
+      <g stroke="#c8821e" stroke-width="1" fill="#1a1208">
+        <rect x="-140" y="390" width="15" height="12"/>
+        <rect x="-120" y="390" width="15" height="12"/>
+        <rect x="-100" y="390" width="15" height="12"/>
+        <rect x="-80" y="390" width="15" height="12"/>
+      </g>
 
-document.querySelectorAll('.pip').forEach(p => {
-  p.addEventListener('click', () => p.classList.toggle('filled'));
-});
-document.querySelectorAll('.status-toggle').forEach(t => {
-  t.addEventListener('click', () => t.classList.toggle('on'));
-});
-document.querySelectorAll('.weapon-break-toggle').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    btn.closest('.weapon').classList.toggle('broken');
-  });
-});
-document.querySelectorAll('.weapon-selector').forEach(sel => {
-  sel.addEventListener('change', () => {
-    const w = WEAPONS[sel.value];
-    if (!w) return;
-    const weaponEl = sel.closest('.weapon');
-    const set = (s, v) => { const el = weaponEl.querySelector('[data-stat="' + s + '"]'); if (el) el.textContent = v; };
-    set('r', w.r); set('fp', w.fp); set('rs', w.rs); set('ap', w.ap); set('d', w.d); set('traits', w.traits);
-  });
-});
+      <!-- right thigh -->
+      <path d="M 110 100 L 130 220 L 80 240 L 50 110 Z" fill="url(#metalGrad)" stroke="#c8821e" stroke-width="2"/>
+      <!-- right knee -->
+      <circle cx="105" cy="225" r="22" fill="url(#armorPlate)" stroke="#c8821e" stroke-width="2"/>
+      <circle cx="105" cy="225" r="8" fill="#f5b94a" opacity="0.6"/>
+      <!-- right shin -->
+      <path d="M 125 240 L 135 360 L 75 360 L 75 240 Z" fill="url(#metalGrad)" stroke="#c8821e" stroke-width="2"/>
+      <!-- right foot -->
+      <path d="M 145 360 L 155 395 L 55 395 L 65 360 Z" fill="url(#armorPlate)" stroke="#c8821e" stroke-width="2"/>
+      <g stroke="#c8821e" stroke-width="1" fill="#1a1208">
+        <rect x="60" y="390" width="15" height="12"/>
+        <rect x="80" y="390" width="15" height="12"/>
+        <rect x="100" y="390" width="15" height="12"/>
+        <rect x="120" y="390" width="15" height="12"/>
+      </g>
+    </g>
+  </g>
+  <!-- ====== END TITAN ====== -->
 
-function resetSheet() {
-  saveState();
+  <!-- ====== ARMOR PIP BUBBLES ====== -->
+  <!-- Each bubble cluster = a hit location -->
 
-  if (!confirm('Reset all damage tracking? Clears pips, statuses, and weapon breaks. Keeps your ID fields, weapon choices, and notes.')) return;
-  document.querySelectorAll('.pip.filled').forEach(p => p.classList.remove('filled'));
-  document.querySelectorAll('.status-toggle.on').forEach(t => t.classList.remove('on'));
-  document.querySelectorAll('.weapon.broken').forEach(w => w.classList.remove('broken'));
-}
+  <!-- HEAD (cockpit) — 9 pips -->
+  <g>
+    <text x="120" y="290" font-size="11" fill="#f5b94a" font-weight="700">HEAD / COCKPIT</text>
+    <text x="120" y="304" font-size="9" fill="#c89858">[ 9 PTS ]</text>
+    <g fill="none" stroke="#c8821e" stroke-width="1.5">
+      <circle cx="100" cy="325" r="6"/><circle cx="116" cy="325" r="6"/><circle cx="132" cy="325" r="6"/>
+      <circle cx="100" cy="341" r="6"/><circle cx="116" cy="341" r="6"/><circle cx="132" cy="341" r="6"/>
+      <circle cx="100" cy="357" r="6"/><circle cx="116" cy="357" r="6"/><circle cx="132" cy="357" r="6"/>
+    </g>
+  </g>
 
-// ============================================================
-// LOCAL STORAGE PERSISTENCE
-// ============================================================
-const STORAGE_KEY = 'titanSheet_' + document.querySelector('h1').textContent.replace(/\s+/g, '_');
+  <!-- LEFT WEAPON (Apocalypse) — 16 pips -->
+  <g>
+    <text x="40" y="400" font-size="11" fill="#f5b94a" font-weight="700">L. WEAPON</text>
+    <text x="40" y="414" font-size="9" fill="#c89858">APOC MSL [ 16 ]</text>
+    <g fill="none" stroke="#c8821e" stroke-width="1.5">
+      <circle cx="40" cy="435" r="6"/><circle cx="56" cy="435" r="6"/><circle cx="72" cy="435" r="6"/><circle cx="88" cy="435" r="6"/>
+      <circle cx="40" cy="451" r="6"/><circle cx="56" cy="451" r="6"/><circle cx="72" cy="451" r="6"/><circle cx="88" cy="451" r="6"/>
+      <circle cx="40" cy="467" r="6"/><circle cx="56" cy="467" r="6"/><circle cx="72" cy="467" r="6"/><circle cx="88" cy="467" r="6"/>
+      <circle cx="40" cy="483" r="6"/><circle cx="56" cy="483" r="6"/><circle cx="72" cy="483" r="6"/><circle cx="88" cy="483" r="6"/>
+    </g>
+  </g>
 
-function saveState() {
-  const state = {
-    ids: {},
-    pips: {},
-    shields: {},
-    statuses: {},
-    weapons: {},
-    notes: ''
-  };
-  
-  // Save ID inputs
-  document.querySelectorAll('.id-input').forEach((inp, i) => {
-    state.ids['id_' + i] = inp.value;
-  });
-  
-  // Save all pip states
-  document.querySelectorAll('.pips').forEach((pips, i) => {
-    const filled = [];
-    pips.querySelectorAll('.pip').forEach((pip, j) => {
-      if (pip.classList.contains('filled')) filled.push(j);
-    });
-    state.pips['pips_' + i] = filled;
-  });
-  
-  // Save shield states
-  document.querySelectorAll('.shield-pips').forEach((pips, i) => {
-    const filled = [];
-    pips.querySelectorAll('.pip.shield').forEach((pip, j) => {
-      if (pip.classList.contains('filled')) filled.push(j);
-    });
-    state.shields['shields_' + i] = filled;
-  });
-  
-  // Save status toggles
-  document.querySelectorAll('.status-toggle').forEach((toggle, i) => {
-    state.statuses['status_' + i] = toggle.classList.contains('on');
-  });
-  
-  // Save weapon selector states and break status
-  document.querySelectorAll('.weapon').forEach((weapon, i) => {
-    const sel = weapon.querySelector('.weapon-selector');
-    const broken = weapon.classList.contains('broken');
-    state.weapons['weapon_' + i] = {
-      selected: sel ? sel.value : null,
-      broken: broken
-    };
-  });
-  
-  // Save notes
-  const notesArea = document.querySelector('.notes-area');
-  if (notesArea) state.notes = notesArea.value;
-  
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-}
+  <!-- RIGHT WEAPON (Gatling) — 16 pips -->
+  <g>
+    <text x="660" y="400" font-size="11" fill="#f5b94a" font-weight="700">R. WEAPON</text>
+    <text x="660" y="414" font-size="9" fill="#c89858">GATLING [ 16 ]</text>
+    <g fill="none" stroke="#c8821e" stroke-width="1.5">
+      <circle cx="660" cy="435" r="6"/><circle cx="676" cy="435" r="6"/><circle cx="692" cy="435" r="6"/><circle cx="708" cy="435" r="6"/>
+      <circle cx="660" cy="451" r="6"/><circle cx="676" cy="451" r="6"/><circle cx="692" cy="451" r="6"/><circle cx="708" cy="451" r="6"/>
+      <circle cx="660" cy="467" r="6"/><circle cx="676" cy="467" r="6"/><circle cx="692" cy="467" r="6"/><circle cx="708" cy="467" r="6"/>
+      <circle cx="660" cy="483" r="6"/><circle cx="676" cy="483" r="6"/><circle cx="692" cy="483" r="6"/><circle cx="708" cy="483" r="6"/>
+    </g>
+  </g>
 
-function loadState() {
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (!saved) return;
-  
-  const state = JSON.parse(saved);
-  
-  // Restore ID inputs
-  Object.entries(state.ids).forEach(([key, val]) => {
-    const inputs = document.querySelectorAll('.id-input');
-    const idx = parseInt(key.split('_')[1]);
-    if (inputs[idx]) inputs[idx].value = val;
-  });
-  
-  // Restore pips
-  Object.entries(state.pips).forEach(([key, filled]) => {
-    const allPips = document.querySelectorAll('.pips');
-    const idx = parseInt(key.split('_')[1]);
-    if (allPips[idx]) {
-      allPips[idx].querySelectorAll('.pip').forEach((pip, j) => {
-        if (filled.includes(j)) pip.classList.add('filled');
-      });
-    }
-  });
-  
-  // Restore shields
-  Object.entries(state.shields).forEach(([key, filled]) => {
-    const allShields = document.querySelectorAll('.shield-pips');
-    const idx = parseInt(key.split('_')[1]);
-    if (allShields[idx]) {
-      allShields[idx].querySelectorAll('.pip.shield').forEach((pip, j) => {
-        if (filled.includes(j)) pip.classList.add('filled');
-      });
-    }
-  });
-  
-  // Restore statuses
-  Object.entries(state.statuses).forEach(([key, isOn]) => {
-    const allToggles = document.querySelectorAll('.status-toggle');
-    const idx = parseInt(key.split('_')[1]);
-    if (allToggles[idx] && isOn) allToggles[idx].classList.add('on');
-  });
-  
-  // Restore weapons
-  Object.entries(state.weapons).forEach(([key, data]) => {
-    const allWeapons = document.querySelectorAll('.weapon');
-    const idx = parseInt(key.split('_')[1]);
-    if (allWeapons[idx]) {
-      const sel = allWeapons[idx].querySelector('.weapon-selector');
-      if (sel && data.selected) {
-        sel.value = data.selected;
-        // Trigger change event to update stats
-        sel.dispatchEvent(new Event('change'));
-      }
-      if (data.broken) allWeapons[idx].classList.add('broken');
-    }
-  });
-  
-  // Restore notes
-  const notesArea = document.querySelector('.notes-area');
-  if (notesArea && state.notes) notesArea.value = state.notes;
-}
+  <!-- CARAPACE (top torso) — 20 pips -->
+  <g>
+    <text x="30" y="550" font-size="11" fill="#f5b94a" font-weight="700">CARAPACE</text>
+    <text x="30" y="564" font-size="9" fill="#c89858">[ 20 PTS ]</text>
+    <g fill="none" stroke="#c8821e" stroke-width="1.5">
+      <circle cx="30" cy="585" r="6"/><circle cx="46" cy="585" r="6"/><circle cx="62" cy="585" r="6"/><circle cx="78" cy="585" r="6"/><circle cx="94" cy="585" r="6"/>
+      <circle cx="30" cy="601" r="6"/><circle cx="46" cy="601" r="6"/><circle cx="62" cy="601" r="6"/><circle cx="78" cy="601" r="6"/><circle cx="94" cy="601" r="6"/>
+      <circle cx="30" cy="617" r="6"/><circle cx="46" cy="617" r="6"/><circle cx="62" cy="617" r="6"/><circle cx="78" cy="617" r="6"/><circle cx="94" cy="617" r="6"/>
+      <circle cx="30" cy="633" r="6"/><circle cx="46" cy="633" r="6"/><circle cx="62" cy="633" r="6"/><circle cx="78" cy="633" r="6"/><circle cx="94" cy="633" r="6"/>
+    </g>
+  </g>
 
-// Load on page load
-document.addEventListener('DOMContentLoaded', loadState);
+  <!-- REACTOR / TORSO — 24 pips -->
+  <g>
+    <text x="660" y="550" font-size="11" fill="#f5b94a" font-weight="700">TORSO/RX</text>
+    <text x="660" y="564" font-size="9" fill="#c89858">[ 24 PTS ]</text>
+    <g fill="none" stroke="#c8821e" stroke-width="1.5">
+      <circle cx="660" cy="585" r="6"/><circle cx="676" cy="585" r="6"/><circle cx="692" cy="585" r="6"/><circle cx="708" cy="585" r="6"/>
+      <circle cx="660" cy="601" r="6"/><circle cx="676" cy="601" r="6"/><circle cx="692" cy="601" r="6"/><circle cx="708" cy="601" r="6"/>
+      <circle cx="660" cy="617" r="6"/><circle cx="676" cy="617" r="6"/><circle cx="692" cy="617" r="6"/><circle cx="708" cy="617" r="6"/>
+      <circle cx="660" cy="633" r="6"/><circle cx="676" cy="633" r="6"/><circle cx="692" cy="633" r="6"/><circle cx="708" cy="633" r="6"/>
+      <circle cx="660" cy="649" r="6"/><circle cx="676" cy="649" r="6"/><circle cx="692" cy="649" r="6"/><circle cx="708" cy="649" r="6"/>
+      <circle cx="660" cy="665" r="6"/><circle cx="676" cy="665" r="6"/><circle cx="692" cy="665" r="6"/><circle cx="708" cy="665" r="6"/>
+    </g>
+  </g>
 
-// Save on every interaction
-document.querySelectorAll('.pip, .status-toggle, .weapon-selector, .id-input').forEach(el => {
-  el.addEventListener('change', saveState);
-  el.addEventListener('click', saveState);
-  el.addEventListener('input', saveState);
-});
-document.querySelectorAll('.weapon-break-toggle').forEach(btn => {
-  btn.addEventListener('click', saveState);
-});
-const notesArea = document.querySelector('.notes-area');
-if (notesArea) {
-  notesArea.addEventListener('input', saveState);
-  notesArea.addEventListener('change', saveState);
-}
+  <!-- LEFT LEG — 20 pips -->
+  <g>
+    <text x="40" y="730" font-size="11" fill="#f5b94a" font-weight="700">L. LEG</text>
+    <text x="40" y="744" font-size="9" fill="#c89858">[ 20 PTS ]</text>
+    <g fill="none" stroke="#c8821e" stroke-width="1.5">
+      <circle cx="40" cy="765" r="6"/><circle cx="56" cy="765" r="6"/><circle cx="72" cy="765" r="6"/><circle cx="88" cy="765" r="6"/><circle cx="104" cy="765" r="6"/>
+      <circle cx="40" cy="781" r="6"/><circle cx="56" cy="781" r="6"/><circle cx="72" cy="781" r="6"/><circle cx="88" cy="781" r="6"/><circle cx="104" cy="781" r="6"/>
+      <circle cx="40" cy="797" r="6"/><circle cx="56" cy="797" r="6"/><circle cx="72" cy="797" r="6"/><circle cx="88" cy="797" r="6"/><circle cx="104" cy="797" r="6"/>
+      <circle cx="40" cy="813" r="6"/><circle cx="56" cy="813" r="6"/><circle cx="72" cy="813" r="6"/><circle cx="88" cy="813" r="6"/><circle cx="104" cy="813" r="6"/>
+    </g>
+  </g>
 
-</script>
+  <!-- RIGHT LEG — 20 pips -->
+  <g>
+    <text x="660" y="730" font-size="11" fill="#f5b94a" font-weight="700">R. LEG</text>
+    <text x="660" y="744" font-size="9" fill="#c89858">[ 20 PTS ]</text>
+    <g fill="none" stroke="#c8821e" stroke-width="1.5">
+      <circle cx="660" cy="765" r="6"/><circle cx="676" cy="765" r="6"/><circle cx="692" cy="765" r="6"/><circle cx="708" cy="765" r="6"/><circle cx="724" cy="765" r="6"/>
+      <circle cx="660" cy="781" r="6"/><circle cx="676" cy="781" r="6"/><circle cx="692" cy="781" r="6"/><circle cx="708" cy="781" r="6"/><circle cx="724" cy="781" r="6"/>
+      <circle cx="660" cy="797" r="6"/><circle cx="676" cy="797" r="6"/><circle cx="692" cy="797" r="6"/><circle cx="708" cy="797" r="6"/><circle cx="724" cy="797" r="6"/>
+      <circle cx="660" cy="813" r="6"/><circle cx="676" cy="813" r="6"/><circle cx="692" cy="813" r="6"/><circle cx="708" cy="813" r="6"/><circle cx="724" cy="813" r="6"/>
+    </g>
+  </g>
+
+  <!-- VOID SHIELDS bubbles -->
+  <g>
+    <text x="320" y="1020" font-size="11" fill="#f5b94a" font-weight="700" text-anchor="middle">VOID SHIELDS</text>
+    <g fill="none" stroke="#f5b94a" stroke-width="1.5" stroke-dasharray="3,2">
+      <circle cx="240" cy="1050" r="10"/>
+      <circle cx="280" cy="1050" r="10"/>
+      <circle cx="320" cy="1050" r="10"/>
+      <circle cx="360" cy="1050" r="10"/>
+      <circle cx="400" cy="1050" r="10"/>
+    </g>
+  </g>
+
+  <!-- HEAT SCALE -->
+  <g>
+    <text x="560" y="1020" font-size="11" fill="#f5b94a" font-weight="700">HEAT SCALE</text>
+    <g stroke="#c8821e" stroke-width="1">
+      <rect x="480" y="1040" width="20" height="20" fill="#2a5a2a"/>
+      <rect x="500" y="1040" width="20" height="20" fill="#3a6a2a"/>
+      <rect x="520" y="1040" width="20" height="20" fill="#6a6a2a"/>
+      <rect x="540" y="1040" width="20" height="20" fill="#8a5a1a"/>
+      <rect x="560" y="1040" width="20" height="20" fill="#aa3a1a"/>
+      <rect x="580" y="1040" width="20" height="20" fill="#aa1a0a"/>
+      <rect x="600" y="1040" width="20" height="20" fill="#6a0a0a"/>
+    </g>
+    <text x="490" y="1075" font-size="8" fill="#c89858">SAFE</text>
+    <text x="600" y="1075" font-size="8" fill="#c89858" text-anchor="end">MELTDOWN</text>
+  </g>
+
+  <!-- footer -->
+  <text x="400" y="1090" font-size="9" fill="#7a5520" text-anchor="middle" letter-spacing="2">
+    ✠ OMNISSIAH PROTECTS ✠ — LEGIO MORTIS RECORD — MARS PATTERN MK-IV
+  </text>
+
+</svg>
 
 </body>
 </html>
